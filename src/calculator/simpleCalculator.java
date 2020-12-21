@@ -54,12 +54,13 @@ public class simpleCalculator {
 		btndel.addActionListener(new btnEvent());
 		initialKeyboard.add(btndel);
 		
-		JButton btnS = new JButton("x²");
+		JButton btnS = new JButton("x\u00b2"); // x²
+
 		btnS.setActionCommand(btnS.getText());
 		btnS.addActionListener(new btnEvent());
 		initialKeyboard.add(btnS);
 		
-		JButton btnR = new JButton("√");
+		JButton btnR = new JButton("\u221a"); // √
 		btnR.setActionCommand(btnR.getText());
 		btnR.addActionListener(new btnEvent());
 		initialKeyboard.add(btnR);
@@ -141,7 +142,7 @@ public class simpleCalculator {
 		btnX.addActionListener(new btnEvent());
 		operationsKeyboard.add(btnX);
 		
-		JButton btnD = new JButton("÷");
+		JButton btnD = new JButton("\u00f7"); // ÷
 		btnD.setActionCommand(btnD.getText());
 		btnD.addActionListener(new btnEvent());
 		operationsKeyboard.add(btnD);
@@ -168,7 +169,7 @@ public class simpleCalculator {
 		strTerm1 = "0";
 		
 		while (i < operations.length()) {
-			if (operations.charAt(i) != '+' && operations.charAt(i) != '-' && operations.charAt(i) != 'x' && operations.charAt(i) != '÷') {
+			if (operations.charAt(i) != '+' && operations.charAt(i) != '-' && operations.charAt(i) != 'x' && operations.charAt(i) != '\u00f7') {
 				strTerm1 += operations.charAt(i);
 			}
 			else {
@@ -187,7 +188,7 @@ public class simpleCalculator {
 			strTerm2 = "0";
 			
 			while (i < operations.length()) {
-				if (operations.charAt(i) != '+' && operations.charAt(i) != '-' && operations.charAt(i) != 'x' && operations.charAt(i) != '÷') {
+				if (operations.charAt(i) != '+' && operations.charAt(i) != '-' && operations.charAt(i) != 'x' && operations.charAt(i) != '\u00f7') {
 					strTerm2 += operations.charAt(i);
 				}
 				else {
@@ -209,7 +210,7 @@ public class simpleCalculator {
 				case 'x':
 					result *= term2;
 				break;
-				case '÷':
+				case '\u00f7':
 					result /= term2;
 				break;
 			}
@@ -225,10 +226,10 @@ public class simpleCalculator {
 		String strResult = "";
 		
 		switch (action) {
-			case "x²":
+			case "x\u00b2":
 				result *= result;
 			break;
-			case "√":
+			case "\u221a":
 				result = (float) Math.sqrt(result);
 			break;
 		}
@@ -250,7 +251,7 @@ public class simpleCalculator {
 					strVisor = strVisor.substring(0, strVisor.length() - 1);
 			    }
 			}
-			else if (action.equals("x²") || action.equals("√")) {
+			else if (action.equals("x\u00b2") || action.equals("\u221a")) {
 				strVisor = doSquareRoot(doOperations(strVisor), action);
 			}
 			else if (action.equals("=")) {
